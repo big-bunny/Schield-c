@@ -1,6 +1,6 @@
 <template>
-<section class="m-20" >
-  <div id="friends" class=" container mt-6">
+<section>
+  <div id="friends" class=" container mt-40">
     <h2 class="text-xl font-bold mb-4">Friends of Shield Donors</h2>
     <table class="min-w-full bg-gray-900 rounded-lg overflow-hidden">
       <thead class="bg-gray-800 uppercase text-gray-500 text-sm">

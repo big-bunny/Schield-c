@@ -1,4 +1,8 @@
 <script lang="ts">
+import chess from '@/static/images/program/chess.jpg';
+import construction from '@/static/images/program/construction.jpg';
+import fieldTrip from '@/static/images/program/field-trip.jpg';
+import extraCurricular from '@/static/images/program/extra-curricular.jpg';
 export default {
   props: {
     protectionType: String,
@@ -14,28 +18,28 @@ export default {
             name: 'Chess Club',
             type: 'Sport',
             description: 'Our chess club provides a space for students to develop their critical thinking and problem-solving skills through playing chess.',
-            src: '/images/gallery/chess.jpg',
+            src: chess,
           },
           {
             id: 2,
             name: 'Construction Club',
             type: 'Building',
             description: 'In our construction club, students learn the basics of woodworking and construction by building projects like birdhouses and picture frames.',
-            src: '/images/gallery/construction.jpg',
+            src: construction,
           },
           {
             id: 3,
             name: 'Field Trip Fund',
             type: 'Experiences',
             description: 'Our field trip fund helps provide students with opportunities to learn outside the classroom by funding trips to museums, historical sites, and other educational locations.',
-            src: '/images/gallery/field-trip.jpg',
+            src: fieldTrip,
           },
           {
             id: 4,
             name: 'Extra-Curricular Activities',
             type: 'Enrichment',
             description: 'Our extra-curricular activities include a range of options like art club, cooking club, and drama club, providing students with opportunities to explore their interests and talents outside the classroom.',
-            src: '/images/gallery/extra-curricular.jpg',
+            src: extraCurricular,
           },
         ],
    

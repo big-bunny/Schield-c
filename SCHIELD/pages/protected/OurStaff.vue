@@ -30,6 +30,10 @@
 </template>
 
 <script lang="ts">
+import staff1 from '@/static/images/staff/staff1.jpg';
+import staff2 from '@/static/images/staff/staff2.jpg';
+import staff4 from '@/static/images/staff/staff4.jpg';
+
 export default {
   data() {
     return {
@@ -39,19 +43,19 @@ export default {
           id: 2,
           title: 'HEADTEACHER',
           name: 'Mr. Felix',
-          src: '/images/staff/staff2.jpg',
+          src: staff1,
         },
         {
           id: 1,
           title: 'Vice Principal (Academics)',
           name: 'Mrs Omolo',
-          src: '/images/staff/staff4.jpg',
+          src: staff4,
         },
         {
           id: 3,
           title: 'Vice Principal (Administration)',
           name: 'Mrs Okojie',
-          src: '/images/staff/staff5.jpg',
+          src: staff2,
         },
       ],
     }

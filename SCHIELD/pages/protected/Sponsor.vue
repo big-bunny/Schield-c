@@ -1,71 +1,58 @@
 <script lang="ts">
+import student1 from '@/static/images/students/student1.jpg';
+import student2 from '@/static/images/students/student2.jpg';
+import student3 from '@/static/images/students/student3.jpg';
+import student4 from '@/static/images/students/student4.jpg';
+import student5 from '@/static/images/students/student5.jpg';
+
 export default {
   props: {
     protectionType: String,
     href: String,
   },
-   // Data property, returns an object
+  // Data property, returns an object
   data() {
+    // const images = require.context('../static/images/students', false, /\.(png|jpe?g|svg)$/);
+   const students = [
+  {
+    id: 1,
+    name: 'Jane Smith',
+    grade: 'Grade 7',
+    bio: 'Jane is a talented artist who loves to express herself through her work. She hopes to one day pursue a career in art and design.',
+    src: student1,
+  },
+  {
+    id: 2,
+    name: 'John Doe',
+    grade: 'Grade 6',
+    bio: 'John is a bright and curious student who loves science and math. He dreams of becoming an engineer one day.',
+    src: student2,
+  },
+  {
+    id: 3,
+    name: 'Sarah Johnson',
+    grade: 'Grade 8',
+    bio: 'Sarah is an accomplished musician who plays several instruments. She hopes to one day become a professional musician.',
+    src: student3,
+  },
+  {
+    id: 4,
+    name: 'Michael Brown',
+    grade: 'Grade 9',
+    bio: 'Michael is a talented athlete who excels in multiple sports. He dreams of one day competing at the national level.',
+    src: student4,
+  },
+  {
+    id: 5,
+    name: 'Emily Davis',
+    grade: 'Grade 7',
+    bio: 'Emily is a passionate reader who loves to explore new worlds through books. She hopes to one day become a writer herself.',
+    src: student5,
+  },
+];
+
     return {
-      // Array of students objects
-      students: [
-        {
-          id: 2,
-          name: 'John Doe',
-          grade: 'Grade 6',
-          bio: 'John is a bright and curious student who loves science and math. He dreams of becoming an engineer one day.',
-          src: '/static/images/gallery/student1.jpg',
-        },
-      
-        {
-          id: 2,
-          name: 'John Doe',
-          grade: 'Grade 6',
-          bio: 'John is a bright and curious student who loves science and math. He dreams of becoming an engineer one day.',
-          src: '/images/gallery/student1.jpg',
-        },
-       
-        {
-          id: 2,
-          name: 'John Doe',
-          grade: 'Grade 6',
-          bio: 'John is a bright and curious student who loves science and math. He dreams of becoming an engineer one day.',
-          src: '/images/gallery/student1.jpg',
-        }, 
-     
-        {
-          id: 2,
-          name: 'John Doe',
-          grade: 'Grade 6',
-          bio: 'John is a bright and curious student who loves science and math. He dreams of becoming an engineer one day.',
-          src: '/images/gallery/student1.jpg',
-        }, 
-      
-        {
-          id: 2,
-          name: 'John Doe',
-          grade: 'Grade 6',
-          bio: 'John is a bright and curious student who loves science and math. He dreams of becoming an engineer one day.',
-          src: '/images/gallery/student1.jpg',
-        },
-   
-        {
-          id: 2,
-          name: 'John Doe',
-          grade: 'Grade 6',
-          bio: 'John is a bright and curious student who loves science and math. He dreams of becoming an engineer one day.',
-          src: '/images/gallery/student1.jpg',
-        },
-       
-        {
-          id: 2,
-          name: 'John Doe',
-          grade: 'Grade 6',
-          bio: 'John is a bright and curious student who loves science and math. He dreams of becoming an engineer one day.',
-          src: '/images/gallery/student1.jpg',
-        },
-      ],
-      // Selected student is initially null
+      students,
       selectedStudent: null,
     };
   },
@@ -80,8 +67,9 @@ export default {
       });
     },
   },
-}
+};
 </script>
+
 
 <template>
  

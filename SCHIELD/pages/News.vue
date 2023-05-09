@@ -32,6 +32,12 @@
 </template>
 <script lang="ts">
 // import { loadScript } from 'vue-plugin-load-script';
+import post1 from '@/static/images/news/post-5.jpg';
+import post2 from '@/static/images/news/post-6.jpg';
+import post3 from '@/static/images/news/post-6.jpg';
+import post4 from '@/static/images/news/post-5.jpg';
+import post6 from '@/static/images/news/post-5.jpg';
+import post5 from '@/static/images/news/post-6.jpg';
 
 export default {
   data() {
@@ -40,37 +46,37 @@ export default {
       posts: [
         {
           title: 'Schield Center Celebrates 10 Years of Excellence in Education',
-          image: '/images/news/gallery/post-1.jpg',
+          image: post1,
           description: 'Schield Center has been providing quality education to students in Kajiado for the past decade. To celebrate this milestone, the school hosted a series of events...',
           link: '#'
         },
         {
           title: 'Schield Center Receives Award for Best Performing School in Kajiado',
-          image: '/images/news/gallery/post-2.jpg',
+          image: post2,
           description: 'Schield Center was recently recognized as the best performing school in Kajiado County. The award was presented by the County Governor...',
           link: '#'
         },
         {
           title: 'Schield Center Launches New STEM Program for Students',
-          image: '/images/news/gallery/post-3.jpg',
+          image: post3,
           description: 'Schield Center is proud to announce the launch of its new STEM program for students. The program will provide students with hands-on...',
           link: '#'
         },
         {
           title: 'Schield Center Students Win National Science Competition',
-          image: '/images/news/gallery/post-4.jpg',
+          image: post4,
           description: 'A team of Schield Center students recently won the National Science Competition. The team developed a new method for...',
           link: '#'
         },
         {
           title: 'Schield Center Partners with Local NGOs to Improve Education in Rural Areas',
-          image: '/images/news/gallery/post-5.jpg',
+          image: post5,
           description: 'Schield Center has partnered with local NGOs to improve access to education in rural areas. The school will be providing resources and training...',
           link: '#'
         },
         {
           title: 'Schield Center Launches New Athletics Program for Students',
-          image: '/images/news/gallery/post-6.jpg',
+          image: post6,
           description: 'Schield Center is excited to announce the launch of its new athletics program for students. The program will offer a variety of sports and activities...',
           link: '#'
         }
