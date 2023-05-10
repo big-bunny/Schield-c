@@ -1,7 +1,7 @@
 <template>
   <header id="home" class="container py-0.25">
     <nav id="Home"
-      class="flex items-center justify-center rounded border rounded-80 border-red-600 flex-wrap bg-gray-800 p-2 z-50">
+      class="flex items-center justify-center rounded border rounded border-red-600 flex-wrap bg-gradient-to-r from-green-500 to-red-500 p-2 z-50 md:rounded-80">
       <div class="flex items-center flex-shrink-0 text-white ">
         <img :src="$config.schoolLogo" alt="Logo">
         <span class="font-semibold text-lg tracking-tight ml-2">SCHIELD CENTER</span>
@@ -20,25 +20,25 @@
       <div :class="[isMenuOpen ? 'block' : 'hidden', 'w-full block flex-grow lg:flex lg:items-center lg:w-auto mt-0']">
         <div class="text-lg text-green lg:flex-grow">
           <a href="/"
-            class="block lg:inline-block text-xl mr-4 font-bold hover:text-white hover:bg-green-500 px-6 py-2 rounded-full">
+            class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
             HOME
           </a>
-          <a href="/News" class="block lg:inline-block mr-4 font-bold hover:bg-green-500 px-6 py-2 rounded-full">
+          <a href="/News"  class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
             BLOG
           </a>
           <!-- dropdown -->
-          <div class="inline-block relative mt-4 lg:mt-0 block lg:inline-block hover:bg-accent rounded mr-4">
+          <div class="inline-block relative mt-4 lg:mt-0 block lg:inline-block hover:bg-accent rounded-full mr-4">
             <a href="#"
-              class="block lg:inline-block text-xl mr-4 text-green font-bold hover:bg-accent px-6 py-2 rounded-full">
+              class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
               SPONSOR
             </a>
-            <div class="dropdown hidden sm: dropdown hover:block absolute bg-red-400 text-black py-2 rounded-lg z-10">
+            <div class="dropdown hidden sm: dropdown hover:block absolute bg-gradient-to-l from-red-500 to-green-500  text-black py-2 rounded-lg z-10">
               <a href="/protected/Sponsor"
-                class="block text-green font-bold hover:text-white hover:bg-green-500 px-6 py-2 rounded-full">
+                class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
                 Support a child
               </a>
               <a href="/protected/Sponsor-program"
-                class="block text-green font-bold hover:text-white hover:bg-green-500 px-6 py-2 rounded-full">
+                class="block lg:inline-block text-black-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
                 Sponsor a program
               </a>
             </div>
@@ -46,21 +46,21 @@
 
 
           <a href="/protected/OurStaff"
-            class="block lg:inline-block text-xl mr-4 text-green font-bold hover:text-white hover:bg-green-500 px-6 py-2 rounded-full">
+            class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
             TEAM
           </a>
           <a href="/Gallery"
-            class="block lg:inline-block text-xl mr-4 text-green font-bold hover:text-white hover:bg-green-500 px-6 py-2 rounded-full">
+             class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
             GALLERY
           </a>
           <a href="/protected/Friends"
-            class="block lg:inline-block text-xl mr-4 text-green font-bold hover:text-white hover:bg-green-500 px-6 py-2 rounded-full">
+          class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
             FRIENDS
           </a>
 
 
           <a
-            class="block lg:inline-block text-black-500 hover:text-black mr-4 md: block  text-primary text-center px-6 py-2 rounded-full mr-2 hover:text-white hover:bg-green-500">
+            class="block lg:inline-block text-black-500 hover:text-black mr-4 md: block  text-primary text-center px-6 py-2 rounded-full mr-1 hover:text-green-500 hover:bg-accent">
             <AuthenticationStatus />
           </a>
 

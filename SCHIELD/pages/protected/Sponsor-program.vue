@@ -65,9 +65,9 @@ export default {
   <!-- This is the template section of the component -->
   <section id="programs" class="container py-20 border-t  border-secondary">
     <!-- This section contains the list of programs -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:px-6 lg:px-8 py-16">
       <!-- This is the header of the section, which displays the title of the section -->
-      <h1 class="text-3xl text-center font-extrabold text-gray-900">SPONSOR PROGRAM</h1>
+      <h1 class="text-3xl justify-text-center font-extrabold bg-gradient-to-r from-accent to-secondary text-gray-900 inline-block rounded-full px-6 py-2">SPONSOR PROGRAM</h1>
       <!-- This is the grid layout that displays the programs -->
       <Donate class="mt-25 w-full"/>
       <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

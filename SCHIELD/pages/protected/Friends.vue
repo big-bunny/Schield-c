@@ -1,7 +1,7 @@
 <template>
 <section>
-  <div id="friends" class=" container mt-40">
-    <h2 class="text-xl font-bold mb-4">Friends of Shield Donors</h2>
+  <div id="friends" class=" text-center container mt-40">
+    <h2 class="text-3xl -center font-extrabold bg-gradient-to-r from-accent to-secondary text-gray-900 inline-block rounded-full px-6 py-2">Friends of Shield Donors</h2>
     <table class="min-w-full bg-gray-900 rounded-lg overflow-hidden">
       <thead class="bg-gray-800 uppercase text-gray-500 text-sm">
         <tr>

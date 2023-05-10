@@ -1,7 +1,7 @@
 <template>
 <section id="news" class=" border-t  border-secondary container py-20"> <!-- Sets up a section with the id of "news" and adds some styling classes -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"> <!-- Sets up a container with some styling classes -->
-    <h1 class="text-3xl text-center font-extrabold text-gray-900">NEWS</h1> <!-- Adds a heading to the section -->
+  <div class="max-w-7xl text-center mx-auto px-4 sm:px-6 lg:px-8 py-16"> <!-- Sets up a container with some styling classes -->
+    <h1 class="text-3xl justify-text-center font-extrabold bg-gradient-to-r from-accent to-secondary text-gray-900 inline-block rounded-full px-6 py-2" >NEWS</h1> <!-- Adds a heading to the section -->
     <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3"> <!-- Sets up a grid layout with some styling classes -->
       <div v-for="item in posts" :key="item.id" class="bg-accent shadow-lg rounded-lg overflow-hidden"> <!-- Sets up a container for each post in the "posts" array using v-for directive. Adds some styling classes, a unique key and overflow-hidden class -->
         <img class="h-48 w-full object-cover" :src="item.image" :alt="item.title" /> <!-- Adds an image with some styling classes, the image source and alternative text from each post object -->
