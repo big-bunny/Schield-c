@@ -1,8 +1,8 @@
 <template>
   <!-- Section for photo gallery -->
-  <section id="gallery" class="container border-t border-secondary py-20 md:py-12 bg-green-500">
+  <section id="gallery" class="container border-t border-secondary py-38 mt-30 md:py-12 bg-green-500">
     <!-- Title of the section -->
-    <h2 class="text-3xl text-center font-semibold py-20">PHOTO GALLERY</h2>
+    <h2 class="text-3xl text-center font-semibold py-2">PHOTO GALLERY</h2>
     <!-- Navigation bar for photo gallery -->
     <nav class="py-4">
       <!-- Displaying the current photo -->

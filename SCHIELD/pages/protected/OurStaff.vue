@@ -93,44 +93,41 @@ export default {
   };
 </script>
 <template>
- 
-  <section id="child" class="container py-20 border-t  border-secondary">
+  <section id="child" class="container py-20 border-t border-secondary">
     <div class="mx-auto px-4 text-center sm:px-6 lg:px-8 py-16">
-    <h1 class="text-3xl justify-text-center font-extrabold bg-gradient-to-r from-accent to-secondary text-gray-900 inline-block rounded-full px-6 py-2">OUR TEAM</h1>
-
+      <h1 class="text-3xl justify-text-center font-extrabold  text-gray-900 inline-block rounded-full px-6 py-2 bg-gradient-to-r from-accent to-secondary">OUR TEAM</h1>
       <Donate class="mt-25 w-full"/>
       <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Display each student -->
+        <!-- Display each staff member -->
         <div v-for="item in staff" :key="item.id" class="bg-accent shadow-lg rounded-lg overflow-hidden">
-          <!-- Display student image -->
+          <!-- Display staff member image -->
           <img class="h-48 w-full object-cover" :src="item.src" :alt="staff" />
           <div class="p-6">
-            <!-- Display student name and grade -->
+            <!-- Display staff member name and title -->
             <h2 class="text-xl font-semibold text-gray-900">{{ item.name }}</h2>
             <p class="mt-2 text-green-600">{{ item.title }} </p>
-            <!-- Display truncated student bio -->
+            <!-- Display truncated staff member bio -->
             <p class="text-lg leading-relaxed truncate-overflow" v-html="item.bio" ref="bio"></p>
             <!-- Button to show full bio and donation options -->
             <a href="#" class="text-green-500" @click.prevent="showModal(item)">Read more</a>
           </div>
         </div>
       </div>
-    </div><!-- Display selected student's full bio and donation options -->
-<div v-if="selectedStaff" class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center">
-  <div class="bg-white max-w-md mx-auto rounded-lg overflow-hidden">
-    <div class="p-6">
-      <h2 class="text-2xl font-bold mb-2">{{ selectedStaff.name }}</h2>
-      <p class="text-green-600 mb-4">{{ selectedStaff.image }}</p>
-      <p class="text-base leading-relaxed text-lg" v-html="selectedStaff.title"></p>
-      <button class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg mt-8"
-        @click="selectedStaff = null">Close</button>
-      <!-- Display PayPal donation button -->
-      <div id="donate-button-container">
-        <div id="donate-button"></div>
+    </div>
+    <!-- Display selected staff member's full bio and donation options -->
+    <div v-if="selectedStaff" class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center">
+      <div class="bg-white max-w-md mx-auto rounded-lg overflow-hidden">
+        <div class="p-6">
+          <h2 class="text-2xl font-bold mb-2">{{ selectedStaff.name }}</h2>
+          <p class="text-green-600 mb-4">{{ selectedStaff.image }}</p>
+          <p class="text-base leading-relaxed text-lg" v-html="selectedStaff.title"></p>
+          <button class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg mt-8" @click="selectedStaff = null">Close</button>
+          <!-- Display PayPal donation button -->
+          <div id="donate-button-container">
+            <div id="donate-button"></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
   </section>
 </template>
