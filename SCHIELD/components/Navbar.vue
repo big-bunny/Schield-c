@@ -1,7 +1,7 @@
 <template>
   <header id="home" class="container py-0.25">
     <nav id="Home"
-      class="  bg-gradient-to-r from-accent to-secondary flex items-center justify-center rounded border rounded border-red-600 flex-wrap p-2 z-50 md:rounded-80">
+      class="  bg-gradient-to-r from-secondary to-accent flex items-center justify-center rounded border rounded border-red-600 flex-wrap p-2 z-50 md:rounded-80">
       <div class="flex items-center flex-shrink-0 text-white ">
         <img :src="$config.schoolLogo" alt="Logo">
         <span class="font-semibold text-lg tracking-tight ml-2">SCHIELD CENTER</span>
@@ -32,7 +32,7 @@
               class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
               SPONSOR
             </a>
-            <div class="dropdown hidden sm: dropdown hover:block absolute  bg-gradient-to-r from-red-500   text-black py-2 rounded-lg z-10">
+            <div class="dropdown hidden sm: dropdown hover:block absolute  bg-gradient-to-r from-secondary   text-black py-2 rounded-lg z-10">
               <a href="/protected/Sponsor"
                 class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
                 Support a child

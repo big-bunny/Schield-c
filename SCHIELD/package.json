@@ -29,6 +29,7 @@
     "nuxt-vue3-google-signin": "^0.0.8",
     "postcss": "^8.0.1",
     "vue-carousel": "^0.18.0",
-    "vue-plugin-load-script": "^2.1.1"
+    "vue-plugin-load-script": "^2.1.1",
+    "vue-youtube": "^1.4.0"
   }
 }

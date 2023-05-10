@@ -1,6 +1,6 @@
 <template >
-  <div  class="min-h-screen flex flex-col bg-fixed bg-no-repeat bg-cover bg-center "
-        :style="`background-image: url('${currentCarousel.image}')`">
+  <div  class="min-h-screen flex flex-col  bg-gradient-to-r from-red-500 to-secondary"
+       >
     <Navbar class="h-10 z-50 fixed w-full top-0" /> <!-- Set the navbar height to 16px -->
     <div class=" z-10"> <!-- Push the content below the navbar -->
       <NuxtPage />

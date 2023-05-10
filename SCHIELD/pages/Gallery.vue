@@ -1,52 +1,108 @@
 <template>
-  <!-- Section for photo gallery -->
-  <section id="gallery" class="container border-t border-secondary py-38 mt-30 md:py-12 bg-green-500">
-    <!-- Title of the section -->
-    <h2 class="text-3xl text-center font-semibold py-2">PHOTO GALLERY</h2>
-    <!-- Navigation bar for photo gallery -->
-    <nav class="py-4">
-      <!-- Displaying the current photo -->
-      <div>
-        <img
-          :src="photos[currentPhoto]"
-          class="rounded shadow mx-auto border-2 border-red-500"
-          style="max-height: 420px"
-        />
-      </div>
+  <section id="child" class="container py-20 border-t border-secondary">
+    <div class="mx-auto px-4 text-center sm:px-6 lg:px-8 py-16">
+      <h1 class="text-3xl justify-text-center font-extrabold text-gray-900 inline-block rounded-full px-6 py-2 bg-gradient-to-r from-accent to-secondary">
+        GALLERY
+      </h1>
 
-      <!-- Thumbnail images for navigation -->
-      <div class="flex flex-wrap justify-center p-2">
-        <img
-          v-for="(photo, i) in photos"
-          :key="photo"
-          :src="photo"
-          class="rounded-full hover:shadow-md cursor-pointer m-1 border-2 border-red-500"
-          style="max-width: 64px"
-          @click="changePhoto(i)"
-        />
+      <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          v-for="item in gallery"
+          :key="item.id"
+          class="bg-accent shadow-lg rounded-lg overflow-hidden relative cursor-pointer"
+          @click="showModal(item)"
+          @mouseover="item.hover = true"
+          @mouseout="item.hover = false"
+        >
+          <div class="relative">
+            <img
+              class="h-64 w-full object-cover transition duration-500 transform hover:scale-110"
+              :src="item.src"
+              :alt="item.name"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 opacity-0 transition-opacity"
+              :class="{ 'opacity-100': item.hover }"
+            >
+              <div class="p-4 bg-white rounded-lg">
+                <h2 class="text-2xl font-bold mb-2">{{ item.name }}</h2>
+                <p class="text-base leading-relaxed text-lg">{{ item.title }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-for="video in videos" :key="video.title" class="bg-accent shadow-lg rounded-lg overflow-hidden relative">
+          <div class="relative h-64">
+            <iframe
+              :src="video.src"
+              frameborder="0"
+              class="absolute top-0 left-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
       </div>
-    </nav>
+    </div>
   </section>
 </template>
 
 <script lang="ts">
+import staff1 from '@/static/images/staff/staff1.jpg';
+import staff2 from '@/static/images/staff/staff2.jpg';
+import staff4 from '@/static/images/staff/staff4.jpg';
+
 export default {
   data() {
+    const gallery = [
+      {
+        id: 2,
+        title: 'HEADTEACHER',
+        name: 'Mr. Felix',
+        src: staff1,
+        hover: false
+      },
+      {
+        id: 1,
+        title: 'Vice Principal (Academics)',
+        name: 'Mrs Omolo',
+        src: staff4,
+        hover: false
+      },
+      {
+        id: 3,
+        title: 'Vice Principal (Administration)',
+        name: 'Mrs Okojie',
+        src: staff2,
+        hover: false
+      }
+    ];
+
+const videos = [
+  {
+    title: 'videos',
+    src: 'https://www.youtube.com/embed/playlist?list=PLU_mcNMHvxin46MFUTYinAx7EgGpRTa-0',
+  },
+  {
+    title: 'Shorts',
+    src: 'https://www.youtube.com/embed/videoseries?list=PLU_mcNMHvxilz_9XO9xIZ9CHRAej-JPZr',
+  }
+];
+
     return {
-      currentPhoto: 0,
-      photos: [],
+      gallery,
+      videos,
+      selectedGallery: null,
     };
   },
- async created() {
-  const images = await (require as any).context('@/static/images/gallery', true, /\.(png|jpe?g|svg)$/);
-  const photos = images.keys().map((key: any) => images(key));
-  this.photos = photos;
-},
-
   methods: {
-    changePhoto(index: number) {
-      this.currentPhoto = index;
-    },
-  },
+    showModal(gallery) {
+      this.selectedGallery = gallery;
+      this.$nextTick(() => {
+        this.$refs.src[0].classList.remove('truncate-overflow');
+      });
+    }
+  }
 };
 </script>
