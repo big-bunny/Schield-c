@@ -3,7 +3,7 @@
   <section id="child" class="container py-20 border-t border-secondary">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
       <h1 class="text-3xl font-extrabold bg-gradient-to-r from-accent to-secondary text-gray-900 inline-block rounded-full px-6 py-2">SPONSOR CHILD</h1>
-      <!-- <Donate class="mt-25 w-full"/> -->
+      <Donate class="mt-25 w-full"/>
       <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         <!-- Display each student -->
         <div v-for="item in students" :key="item.id" class="bg-accent shadow-lg rounded-lg overflow-hidden">
