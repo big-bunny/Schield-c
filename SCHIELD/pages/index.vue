@@ -4,8 +4,7 @@
       <header class="min-h-screen flex flex-col bg-fixed bg-no-repeat bg-cover bg-center bg-accent"
         :style="`background-image: url('${currentCarousel.image}')`">
         <nav class="flex-1 flex flex-col justify-end items-baseline lg:w-2/3 py-4 lg:py-8 mx-auto">
-          <div
-            class="bg-green-600 bg-opacity-75 px-4 py-8 md:px-12 rounded shadow w-full border border-red-500 rounded-md">
+          <div class="bg-green-600 bg-opacity-75 px-4 py-8 md:px-12 rounded shadow w-full border border-red-500 rounded-md">
             <div class="text-xl text-black font-bold leading-relaxed">
               {{ currentCarousel.text }}
             </div>
@@ -55,13 +54,12 @@ import slide5 from '@/static/images/sliders/slide-5.jpg';
 
 definePageMeta({ auth: false })
 export default {
-  // This is the script section of the About component
   data() {
-    return {
-      preloadImages: [], // An array to store pre-loaded images
-      currentCarousel: {}, // An object to store the current slide
-      carousel: [ // An array of objects containing slide information
-        {
+     return {
+      preloadImages: [], // Array to store pre-loaded images
+      currentCarousel: {}, // Object to store the current slide
+      carousel: [ // Array of objects containing slide information
+         {
           title: 'Students and Principal',
           image: slide1,
           text:
@@ -95,50 +93,31 @@ export default {
     }
   },
 
+ 
   created() {
-    // Pre-load images for all slides in the carousel
     this.carousel.forEach((slide) => {
-      const image = new Image() // Create a new Image object
-      image.src = slide.image // Set the 'src' attribute of the Image object to the slide image path
-      this.preloadImages.push(image) // Add the Image object to the 'preloadImages' array
+      const image = new Image(); // Create a new Image object
+      image.src = slide.image; // Set the 'src' attribute of the Image object to the slide image path
+      this.preloadImages.push(image); // Add the Image object to the 'preloadImages' array for pre-loading
     })
 
-    // Set an interval for slide change with a duration of 10 seconds
-    let i = 0 // Initialize a counter variable 'i' to 0
-    // eslint-disable-next-line no-unused-vars
-    const interval = 100 // Declare a constant 'interval' with a value of 100
+    let i = 0; // Initialize a counter variable 'i' to 0
+    const interval = 100; // Declare a constant 'interval' with a value of 100
     setInterval(() => { // Set an interval to execute a function every 10 seconds
-      this.currentCarousel = this.carousel[i] // Set the currentCarousel object to the current slide
-      i++ // Increment the counter variable
+      this.currentCarousel = this.carousel[i]; // Set the currentCarousel object to the current slide
+      i++; // Increment the counter variable
       if (i >= this.carousel.length) { // If the counter variable exceeds the number of slides, reset it to 0
-        i = 0
+        i = 0;
       }
-    }, 10000)
+    }, 10000); // Interval duration of 10 seconds (10000 milliseconds)
   },
 };
 </script>
 
 <style scoped>
-/* Styles for the header section */
-.min-h-screen {
-  min-height: 100vh;
-}
-
-.bg-accent {
-  background-color: var(--color-accent);
-}
-
-.text-wide {
-  font-weight: 800;
-}
-
-/* Styles for the content section */
-.bg-secondary {
-  background-color: var(--color-secondary);
-}
-
-.leading-relaxed {
-  line-height: 1.8;
-
-}
+/* Tailwind CSS classes are applied directly, no additional comments needed */
 </style>
+
+<!-- No scoped styles are used, as Tailwind CSS classes are applied directly -->
+
+<!-- Note: The previous style block is removed as Tailwind CSS is used directly -->
