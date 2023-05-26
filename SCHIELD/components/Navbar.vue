@@ -1,164 +1,156 @@
 <template>
-  <header id="home" class="container py-0.25">
+  <header id="home" class="container">
     <nav id="Home"
-      class="  bg-gradient-to-r from-secondary to-accent flex items-center justify-center rounded border rounded border-red-600 flex-wrap p-2 z-50 md:rounded-80">
-      <div class="flex items-center flex-shrink-0 text-white ">
-        <img :src="$config.schoolLogo" alt="Logo">
-        <span class="font-semibold text-lg tracking-tight ml-2">SCHIELD CENTER</span>
+      class="bg-gradient-to-r from-secondary to-accent flex items-center justify-between rounded border border-red-600 flex-wrap p-2 z-50 md:rounded-80">
+      <!-- Logo and Site Name -->
+      <div class="flex items-center flex-shrink-0 text-white">
+        <img :src="$config.schoolLogo" alt="Logo" class="h-8 w-8">
+        <span class="font-semibold text-lg ml-2">SCHIELD CENTER</span>
       </div>
-      <div class="block lg:hidden ml-auto">
-        <button
-          class="flex items-center px-2 py-1 border rounded text-gray-500 border-gray-500 hover:text-white hover:border-white"
-          @click="isMenuOpen = !isMenuOpen">
-          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <title>Menu</title>
-            <path :class="[isMenuOpen ? 'hidden' : '']" d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            <path :class="[isMenuOpen ? '' : 'hidden']" d="M0 3h20v2H0V3zm0 8h20v2H0v-2zm0 8h20v2H0v-2z" />
-          </svg>
-        </button>
-      </div>
-      <div :class="[isMenuOpen ? 'block' : 'hidden', 'w-full block flex-grow lg:flex lg:items-center lg:w-auto mt-0']">
-        <div class="text-lg text-green lg:flex-grow">
-          <a href="/"
-            class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
-            HOME
-          </a>
-          <a href="/News"  class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
-            BLOG
-          </a>
-          <!-- dropdown -->
-          <div class="inline-block relative mt-4 lg:mt-0 block lg:inline-block hover:bg-accent rounded-full mr-4">
-            <a href="#"
-              class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
-              SPONSOR
-            </a>
-            <div class="dropdown hidden sm: dropdown hover:block absolute  bg-gradient-to-r from-secondary   text-black py-2 rounded-lg z-10">
-              <a href="/protected/Sponsor"
-                class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
-                Support a child
+      <div class="flex items-center flex-wrap">
+        <div class="text-lg text-green flex sm:hidden">
+          <!-- Hamburger Menu -->
+          <button
+            class="flex items-center px-2 py-1 border rounded text-gray-500 border-gray-500 hover:text-red hover:border-secondary"
+            @click="toggleMenu">
+            <!-- Hamburger Icon -->
+            <svg class="fill-current h-4 w-4" :class="isMenuOpen ? 'hidden' : ''" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+            <!-- Close Icon -->
+            <svg class="fill-current h-4 w-4" :class="isMenuOpen ? '' : 'hidden'" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <title>Close</title>
+              <path
+                d="M3.707 3.293a1 1 0 0 0-1.414 1.414L8.586 10l-6.293 6.293a1 1 0 1 0 1.414 1.414L10 11.414l6.293 6.293a1 1 0 0 0 1.414-1.414L11.414 10l6.293-6.293a1 1 0 0 0-1.414-1.414L10 8.586 3.707 2.293z" />
+            </svg>
+          </button>
+          <!-- Dropdown Menu -->
+          <div :class="{ 'hidden': !isMenuOpen }"
+            class="absolute top-full right-0 mt-2 bg-accent text-gray-500 text-lg font-bold shadow-md rounded-md">
+            <template v-for="(link, index) in links" :key="index">
+              <!-- Check if link has dropdown items -->
+              <div v-if="link.dropdownItems">
+                <!-- Main Dropdown Link -->
+                <a class="block px-4 py-2 hover:text-green-500 transition duration-300 ease-in-out"
+                  @click="toggleDropdown(index)">
+                  {{ link.label }}
+                </a>
+                <!-- Dropdown Sub-Links -->
+                <div v-if="link.isOpen" class="dropdown-sublinks">
+                  <template v-for="(dropdownItem, dropdownIndex) in link.dropdownItems">
+                    <a :href="dropdownItem.url"
+                      class="block px-4 py-2 hover:text-green-500 transition duration-300 ease-in-out">
+                      {{ dropdownItem.label }}
+                    </a>
+                  </template>
+                </div>
+              </div>
+              <!-- Regular Links -->
+              <a v-else :href="link.url"
+                class="block px-2 py-2 hover:text-green-500 hover:bg-accent rounded-md transition duration-300 ease-in-out">
+                {{ link.label }}
               </a>
-              <a href="/protected/Sponsor-program"
-                class="block lg:inline-block text-black-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
-                Sponsor a program
-              </a>
-            </div>
+            </template>
           </div>
-
-
-          <a href="/protected/OurStaff"
-            class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
-            TEAM
-          </a>
-          <a href="/Gallery"
-             class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
-            GALLERY
-          </a>
-          <a href="/protected/Friends"
-          class="block lg:inline-block text-grey-500 text-xl mr-4 font-bold hover:text-green-500 hover:bg-accent px-6 py-2 rounded-full">
-            FRIENDS
-          </a>
-
-
+        </div>
+        <div class="hidden text-lg text-green sm:flex flex-wrap">
+          <!-- Links and Dropdowns -->
+          <template v-for="(link, index) in links" :key="index">
+            <div class="relative">
+              <!-- Dropdown Links -->
+              <a v-if="link.dropdownItems"
+                class="inline-block text-gray-500 text-lg mr-4 font-bold hover:text-green-500 hover:bg-accent px-4 py-2 rounded-full"
+                @click="toggleDropdown(index)">
+                {{ link.label }}
+              </a>
+              <div v-if="link.dropdownItems && link.isOpen"
+                class="dropdown absolute top-full left-0 mt-2 bg-secondary text-gray-500 text-lg font-bold shadow-md rounded-md"
+                @click="closeDropdown(index)">
+                <template v-for="(dropdownItem, dropdownIndex) in link.dropdownItems">
+                  <a :href="dropdownItem.url"
+                    class="block px-4 py-2 hover:text-green-500 transition duration-300 ease-in-out">
+                    {{ dropdownItem.label }}
+                  </a>
+                </template>
+              </div>
+            </div>
+            <!-- Regular Links -->
+            <a v-if="!link.dropdownItems" :href="link.url"
+              class="inline-block text-gray-500 text-lg mr-4 font-bold hover:text-green-500 hover:bg-accent px-2 py-1.5 rounded-md transition duration-300 ease-in-out">
+              {{ link.label }}
+            </a>
+          </template>
+          <!-- Authentication Status -->
           <a
-            class="block lg:inline-block text-black-500 hover:text-black mr-4 md: block  text-primary text-center px-6 py-2 rounded-full mr-1 hover:text-green-500 hover:bg-accent">
+            class="block lg:inline-block text-black-500 hover:text-black mr-4 md:block text-primary text-center px-4 py-2 rounded-full mr-1 hover:text-green-500 hover:bg-accent">
             <AuthenticationStatus />
           </a>
-
         </div>
       </div>
     </nav>
   </header>
 </template>
 
+
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 export default defineComponent({
   data() {
     return {
       isMenuOpen: false,
-      isOPen: false,
-      someOtherProperty: 'someValue'
+      links: [
+        { label: 'HOME', url: '/' },
+        { label: 'BLOG', url: '/News' },
+        {
+          label: 'SPONSOR',
+          url: '#',
+          isOpen: false,
+          dropdownItems: [
+            { label: 'Support a child', url: '/protected/Sponsor' },
+            { label: 'Sponsor a program', url: '/protected/Sponsor-program' }
+          ]
+        },
+        { label: 'TEAM', url: '/protected/OurStaff' },
+        { label: 'GALLERY', url: '/Gallery' },
+        { label: 'FRIENDS', url: '/protected/Friends' }
+      ]
     };
   },
-  computed: {
-    isOpen(): boolean {
-      return this.someOtherProperty === 'someValue'
-    }
+  mounted() {
+    this.updateHalfScreen();
+    window.addEventListener('resize', this.updateHalfScreen);
   },
-  watch: {
-    isMenuOpen(value: boolean) {
-      if (!value) {
-        this.$nextTick(() => {
-          // Reset the computed property after the next tick
-          // to avoid the warning message
-          this.$forceUpdate();
-        });
+  beforeUnmount() {
+    window.removeEventListener('resize', this.updateHalfScreen);
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+    toggleDropdown(index: number) {
+      this.links[index].isOpen = !this.links[index].isOpen;
+    },
+    closeDropdown(index: number) {
+      this.links[index].isOpen = false;
+    },
+    delayCloseDropdown(index: number) {
+      setTimeout(() => {
+        this.closeDropdown(index);
+      }, 300); // Adjust the delay as needed (in milliseconds)
+    },
+    updateHalfScreen() {
+      const width = window.innerWidth;
+      const halfScreenWidth = width / 2;
+      if (width <= 768) {
+        this.isMenuOpen = false;
+      } else {
+        this.isMenuOpen = halfScreenWidth < 768;
       }
     }
-  },
-}
-);
-
+  }
+});
 </script>
-
-<style scoped>
-.inline-block:hover .dropdown {
-  display: block;
-}
-
-.dropdown {
-  display: none;
-}
-
-.dropdown>.dropdown>a:hover {
-  background-color: #15d468;
-}
-
-@media (max-width: 767px) {
-  .navbar-menu {
-    display: flex !important;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 50;
-    width: 100%;
-    background-color: #1f2937;
-    padding: 1rem;
-  }
-
-  .navbar-menu a {
-    display: block;
-    padding: 0.5rem 1rem;
-    font-size: 1.25rem;
-    text-align: center;
-    color: #f3f4f6;
-    border-bottom: 1px solid #4b5563;
-  }
-
-  .navbar-menu a:hover {
-    background-color: #15d468;
-  }
-
-  .inline-block:hover .dropdown {
-    display: block;
-  }
-
-  .dropdown {
-    position: static;
-    display: none;
-    width: 100%;
-  }
-
-  .dropdown a {
-    display: block;
-  }
-
-  .sm\\:hidden {
-    display: block !important;
-  }
-
-  .dropdown a:hover {
-    background-color: #4b5563;
-  }
-}</style>

@@ -21,7 +21,7 @@
               :alt="item.name"
             />
             <div
-              class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 opacity-0 transition-opacity"
+              class="absolute inset-0 flex items-center justify-center bg-yellow-400 bg-opacity-50 opacity-0 transition-opacity"
               :class="{ 'opacity-100': item.hover }"
             >
               <div class="p-4 bg-white rounded-lg">
@@ -43,6 +43,16 @@
             ></iframe>
           </div>
         </div>
+      </div>
+    </div>
+    <div v-if="selectedGallery" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-75 z-50">
+      <div class="bg-accent p-8 rounded-lg max-w-2xl">
+        <img :src="selectedGallery.src" :alt="selectedGallery.name" class="w-full rounded-lg shadow-lg" />
+        <div class="mt-4 text-center">
+          <h2 class="text-xl font-bold mb-2">{{ selectedGallery.name }}</h2>
+          <p class="text-base leading-relaxed">{{ selectedGallery.title }}</p>
+        </div>
+        <button class="mt-6 py-2 px-4 rounded-full bg-red text-white font-bold" @click="selectedGallery = null">Close</button>
       </div>
     </div>
   </section>
@@ -79,16 +89,16 @@ export default {
       }
     ];
 
-const videos = [
-  {
-    title: 'videos',
-    src: 'https://www.youtube.com/embed/playlist?list=PLU_mcNMHvxin46MFUTYinAx7EgGpRTa-0',
-  },
-  {
-    title: 'Shorts',
-    src: 'https://www.youtube.com/embed/videoseries?list=PLU_mcNMHvxilz_9XO9xIZ9CHRAej-JPZr',
-  }
-];
+    const videos = [
+      {
+        title: 'videos',
+        src: 'https://www.youtube.com/embed/playlist?list=PLU_mcNMHvxin46MFUTYinAx7EgGpRTa-0',
+      },
+      {
+        title: 'Shorts',
+        src: 'https://www.youtube.com/embed/videoseries?list=PLU_mcNMHvxilz_9XO9xIZ9CHRAej-JPZr',
+      }
+    ];
 
     return {
       gallery,
@@ -97,12 +107,22 @@ const videos = [
     };
   },
   methods: {
-    showModal(gallery) {
-      this.selectedGallery = gallery;
-      this.$nextTick(() => {
-        this.$refs.src[0].classList.remove('truncate-overflow');
-      });
+    showModal(item) {
+      this.selectedGallery = item;
+    },
+    closeModal() {
+      this.selectedGallery = null;
+    },
+    handleClickOutside(event) {
+      if (event.target.closest('.bg-white')) return;
+      this.closeModal();
     }
+  },
+  mounted() {
+    window.addEventListener('click', this.handleClickOutside);
+  },
+  beforeUnmount() {
+    window.removeEventListener('click', this.handleClickOutside);
   }
 };
 </script>

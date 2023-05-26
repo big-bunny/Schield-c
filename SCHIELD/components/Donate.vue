@@ -97,30 +97,34 @@ export default {
 }
 </script>
 <template>
-  <section class="bg-green-400 mt-25 rounded-full">
+  <section class="bg-green-400 mt-16 rounded-full">
     <div class="max-w-6xl mx-auto">
-      <div class="flex items">
-        <div class="w-3/12 h-full justify-start flex">
-          <div class="bg-red-400 rounded-full px-5 mt-0 w-3/3 h-full flex items-center">
-            <div class="text-lg font-bold text-left">
+      <div class="flex items-center justify-between">
+        <div class="w-3/12">
+          <div class="bg-accent rounded-full py-3 px-6">
+            <div class="text-lg font-bold text-green">
               {{ currentCarousel.title }}
             </div>
           </div>
         </div>
 
-        <div class="w-7/12 flex justify-center items-center">
-          <div class="text-xl text-black mt-0 font-bold leading-relaxed sliding-text pl-16">
-            <marquee style="animation: slide 407s linear infinite; animation-fill-mode: forwards;">
+        <div class="w-7/12">
+          <div class="text-xl text-black mt-3 font-bold leading-relaxed overflow-hidden">
+            <marquee
+              class="sliding-text"
+              style="animation: slide 40s linear infinite; animation-fill-mode: forwards;"
+            >
               {{ currentCarousel.text || 'MISSION & VISION' }}
             </marquee>
           </div>
         </div>
 
-        <div class="w-2/12 flex justify-end items-end mr-0">
-          <div id="paypal-donate-button-container"></div>
+        <div class="w-2/12">
+          <div class="flex bg-accent rounded-full justify-end items-center">
+            <div id="paypal-donate-button-container"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </template>
-

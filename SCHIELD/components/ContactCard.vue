@@ -56,17 +56,17 @@ export default {
         {
           title: 'Phone',
           icon: 'fa-phone',
-          address: this.$config.schoolTelephone,
+          address: '+254110883547',
         },
         {
           title: 'E-mail',
           icon: 'fa-envelope',
-          address: this.$config.schoolEmail,
+          address:'schieldcenter@gmail.com',
         },
         {
           title: 'Address',
           icon: 'fa-map-marker',
-          address: this.$config.schoolLocation,
+          address: 'Noosolian Namannga-Highway',
         },
       ],
     }
