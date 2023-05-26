@@ -84,39 +84,40 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import logoImage from '@/static/g-Logo.png';
+
 export default defineComponent({
   data() {
     return {
-      logo: logoImage,
-      isMenuOpen: false,
+      logo: logoImage, // The imported logo image
+      isMenuOpen: false, // Flag to track the menu open/close state
       links: [
-        { label: 'HOME', url: '/', icon: 'fas fa-home' },
-        { label: 'ABOUT', url: '#about', icon: 'fas fa-info-circle' },
-        { label: 'BLOG', url: '/News', icon: 'fas fa-newspaper' },
+        { label: 'HOME', url: '/', icon: 'fas fa-home' }, // Link to the homepage
+        { label: 'ABOUT', url: '#about', icon: 'fas fa-info-circle' }, // Link to the 'about' section
+        { label: 'BLOG', url: '/News', icon: 'fas fa-newspaper' }, // Link to the blog section
         {
           label: 'SPONSOR',
           url: '#',
-          isOpen: false,
+          isOpen: false, // Flag to track the dropdown open/close state
           dropdownItems: [
-            { label: 'Support a child', url: '/protected/Sponsor', icon: 'fas fa-hands-helping' },
-            { label: 'Sponsor a program', url: '/protected/Sponsor-program', icon: 'fas fa-donate' }
+            { label: 'Support a child', url: '/protected/Sponsor', icon: 'fas fa-hands-helping' }, // Dropdown link to support a child
+            { label: 'Sponsor a program', url: '/protected/Sponsor-program', icon: 'fas fa-donate' } // Dropdown link to sponsor a program
           ]
         },
-        { label: 'TEAM', url: '/protected/OurStaff', icon: 'fas fa-users' },
-        { label: 'GALLERY', url: '/Gallery', icon: 'fas fa-images' },
-        { label: 'FRIENDS', url: '/protected/Friends', icon: 'fas fa-user-friends' }
+        { label: 'TEAM', url: '/protected/OurStaff', icon: 'fas fa-users' }, // Link to the team page
+        { label: 'GALLERY', url: '/Gallery', icon: 'fas fa-images' }, // Link to the gallery
+        { label: 'FRIENDS', url: '/protected/Friends', icon: 'fas fa-user-friends' } // Link to the friends section
       ]
     };
   },
   methods: {
     toggleMenu() {
-      this.isMenuOpen = !this.isMenuOpen;
+      this.isMenuOpen = !this.isMenuOpen; // Toggles the menu open/close state
     },
     toggleDropdown(index) {
-      this.links[index].isOpen = !this.links[index].isOpen;
+      this.links[index].isOpen = !this.links[index].isOpen; // Toggles the dropdown open/close state for the specified index
     },
     closeDropdown(index) {
-      this.links[index].isOpen = false;
+      this.links[index].isOpen = false; // Closes the dropdown for the specified index
     }
   }
 });
