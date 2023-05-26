@@ -19,6 +19,7 @@ specifiers:
   typescript: ^4.9.3
   vue-carousel: ^0.18.0
   vue-plugin-load-script: ^2.1.1
+  vue-tilt.js: ^1.1.1
   vue-youtube: ^1.4.0
   webpack: '>=4.27.0 <5.0.0 || >=5.0.0 <6.0.0'
 
@@ -30,6 +31,7 @@ dependencies:
   postcss: 8.4.23
   vue-carousel: 0.18.0
   vue-plugin-load-script: 2.1.1
+  vue-tilt.js: 1.1.1
   vue-youtube: 1.4.0
 
 devDependencies:
@@ -5473,6 +5475,10 @@ packages:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
 
+  /vanilla-tilt/1.8.0:
+    resolution: {integrity: sha512-wVCHyyfRuiRdKhDTNxKPb60lkagmywDSqLgFETEr71Sm646AvGxuf/14Kx9A8FaISyYvMoKQHk6FTqt+YLGhEw==}
+    dev: false
+
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
@@ -5640,6 +5646,12 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.5.0
       vue: 3.2.47
+
+  /vue-tilt.js/1.1.1:
+    resolution: {integrity: sha512-Tsc+01E9tO5TprUFplYEScU+DxQVY1sWiGlsqYb03R1fpSM5SWzBDeq1cb3Mj1vl+VbD/rlUM0vj5xW0DzUTRw==}
+    dependencies:
+      vanilla-tilt: 1.8.0
+    dev: false
 
   /vue-youtube/1.4.0:
     resolution: {integrity: sha512-PCyfGAouSt6rTX0GLUzpdX2XC52zYf7a9mUhdp53jeDlPoU40hpsvyV3Zg2+947pvbv27ORcmtzm2fqO08kh9Q==}

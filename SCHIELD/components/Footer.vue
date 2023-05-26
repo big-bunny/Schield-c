@@ -16,11 +16,11 @@
         </nav>
 
         <nav class="order-2 md:order-1 pb-8 md:pb-0"> <!-- logo container -->
-          <img :src="$config.schoolLogo" alt="logo" class="mx-auto" width="240" />
+          <img :src="logo" alt="logo" class="mx-auto" width="240" />
         </nav>
 
-        <nav class="order-3"> <!-- SCHIELD CENTER logo container -->
-          <img src="/images/SCHIELD-CENTER.svg" alt="logo" class="mx-auto" width="240" />
+        <nav class="order-3 md:order-2 pb-8 md:pb-0"> <!-- logo container -->
+          <img :src="logo" alt="logo" class="mx-auto" width="240" />
         </nav>
       </div>
     </nav>
@@ -42,9 +42,12 @@
 </template>
 
 <script lang="ts">
+import logoImage from '@/static/Web/logo.png';
 export default {
   data() {
-    return {
+   return {
+     logo: logoImage,
+    
       // Define an array of quick links with their titles, slugs, and icons
       quickLinks: [
         { title: 'Home', slug: '/#home', icon: 'fa-home' },
