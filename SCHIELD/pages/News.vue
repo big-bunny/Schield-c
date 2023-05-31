@@ -3,16 +3,21 @@
     <div class="max-w-7xl text-center mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <h1 class="text-3xl justify-text-center font-extrabold bg-gradient-to-r from-accent to-secondary text-gray-900 inline-block rounded-full px-6 py-2">NEWS</h1>
       <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <div v-for="item in posts" :key="item.id" class="bg-accent shadow-lg rounded-lg overflow-hidden" v-tilt>
+        <div v-for="item in posts" :key="item.id" class="bg-accent shadow-lg rounded-lg overflow-hidden">
           <!-- Display news item image -->
-          <img class="h-48 w-full object-cover" :src="item.image" :alt="item.title" />
+          <div class="relative">
+            <img class="h-48 w-full object-cover rounded-t-lg" :src="item.image" :alt="item.title" />
+            <div class="absolute top-0 right-0 rounded-tl-lg bg-red-500 px-2 py-1">
+              <span class="text-green text-sm">New</span>
+            </div>
+          </div>
           <div class="p-6">
             <!-- Display news item title -->
             <h2 class="text-xl font-semibold text-gray-900">{{ item.title }}</h2>
             <!-- Display news item link -->
             <p class="mt-2 text-green-600">{{ item.link }}</p>
             <!-- Display news item description -->
-            <p class="text-lg leading-relaxed" v-html="item.description" ref="bio"></p>
+            <p class="text-lg leading-relaxed truncate-overflow" v-html="truncateDescription(item.description, 6)"></p>
             <!-- Open a modal to show the full news item -->
             <a href="#" class="text-green-500" @click.prevent="showModal(item)">Read more</a>
           </div>
@@ -21,13 +26,13 @@
     </div>
 
     <!-- Modal to display the selected news item -->
-    <div v-if="selectedPost" class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center">
+    <div v-if="selectedPost" class="fixed inset-0 bg-green-700 bg-opacity-50 flex justify-center items-center">
       <div class="bg-white max-w-md mx-auto rounded-lg overflow-hidden">
         <div class="p-6">
           <!-- Display selected news item title -->
           <h2 class="text-2xl font-bold mb-2">{{ selectedPost.title }}</h2>
           <!-- Display selected news item image -->
-          <p class="text-green-600 mb-4">{{ selectedPost.image }}</p>
+          <img class="h-48 w-full object-cover mb-4" :src="selectedPost.image" :alt="selectedPost.title" />
           <!-- Display selected news item description -->
           <p class="text-base text-lg leading-relaxed" v-html="selectedPost.description"></p>
           <!-- Close the modal -->
@@ -39,7 +44,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, nextTick } from 'vue';
 import post1 from '@/static/images/news/post-5.jpg';
 import post2 from '@/static/images/news/post-6.jpg';
 import post3 from '@/static/images/news/post-6.jpg';
@@ -47,9 +52,14 @@ import post4 from '@/static/images/news/post-5.jpg';
 import post6 from '@/static/images/news/post-5.jpg';
 import post5 from '@/static/images/news/post-6.jpg';
 
+definePageMeta({ auth: false });
 export default {
-  setup() {
-    const posts = [
+  props: {
+   
+    href: String,
+  },
+   setup() {
+    const posts =[
       {
         title: 'Schield Center Celebrates 10 Years of Excellence in Education',
         image: post1,
@@ -87,20 +97,29 @@ export default {
         link: '#'
       }
     ];
-
     const selectedPost = ref(null);
 
     const showModal = (post) => {
       selectedPost.value = post;
       // Remove the "truncate-overflow" class from the post's description element
       nextTick(() => {
-        bioRef.value.classList.remove('truncate-overflow');
+        descriptionRef.value.classList.remove('truncate-overflow');
       });
     };
+
+    const truncateDescription = (description, wordLimit) => {
+      const words = description.split(' ');
+      if (words.length > wordLimit) {
+        return words.slice(0, wordLimit).join(' ') + '...';
+      }
+      return description;
+    };
+
     return {
       posts,
       selectedPost,
       showModal,
+      truncateDescription,
     };
   },
 };

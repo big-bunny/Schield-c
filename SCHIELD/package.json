@@ -24,9 +24,13 @@
   },
   "dependencies": {
     "@nuxtjs/composition-api": "^0.33.1",
+    "argon2": "^0.30.3",
     "load-script": "^2.0.0",
+    "mongodb": "^5.5.0",
     "next-auth": "^4.18.8",
+    "nodemailer": "^6.9.3",
     "nuxt-vue3-google-signin": "^0.0.8",
+    "pg": "^8.11.0",
     "postcss": "^8.0.1",
     "vue-carousel": "^0.18.0",
     "vue-plugin-load-script": "^2.1.1",

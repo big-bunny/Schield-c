@@ -96,7 +96,7 @@ export default {
 </script>
 
 <template>
-  <section class="bg-green-400 mt-16 rounded-full">
+  <section class="bg-green-400 mt-40 rounded-full">
     <div class="max-w-6xl mx-auto">
       <div class="flex items-center justify-between">
         <div class="w-3/12">

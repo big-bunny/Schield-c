@@ -4,7 +4,7 @@
       <!-- Logo and Site Name -->
       <div class="flex items-center flex-shrink-0 text-red-400">
         <img :src="logo" alt="Logo" class="h-8 w-8">
-        <span class="font-bold text-lg ml-2">SCHIELD CENTER</span>
+        <span class="font-bold text-lg ml-2">SCHIELD CENTRE</span>
       </div>
       <div class="flex items-center flex-wrap">
         <div class="text-lg text-green flex sm:hidden">
@@ -73,7 +73,7 @@
           </template>
           <!-- Authentication Status -->
           <a class="block lg:inline-block text-black-500 hover:text-black mr-4 md:block text-primary text-center px-4 py-2 rounded-full mr-1 hover:text-green-500 hover:bg-accent">
-            <AuthenticationStatus />
+            <!-- <AuthenticationStatus /> -->
           </a>
         </div>
       </div>
@@ -92,20 +92,19 @@ export default defineComponent({
       isMenuOpen: false, // Flag to track the menu open/close state
       links: [
         { label: 'HOME', url: '/', icon: 'fas fa-home' }, // Link to the homepage
-        { label: 'ABOUT', url: '#about', icon: 'fas fa-info-circle' }, // Link to the 'about' section
         { label: 'BLOG', url: '/News', icon: 'fas fa-newspaper' }, // Link to the blog section
         {
           label: 'SPONSOR',
           url: '#',
           isOpen: false, // Flag to track the dropdown open/close state
           dropdownItems: [
-            { label: 'Support a child', url: '/protected/Sponsor', icon: 'fas fa-hands-helping' }, // Dropdown link to support a child
-            { label: 'Sponsor a program', url: '/protected/Sponsor-program', icon: 'fas fa-donate' } // Dropdown link to sponsor a program
+            { label: 'Support a child', url: '/Sponsor', icon: 'fas fa-hands-helping' }, // Dropdown link to support a child
+            { label: 'Sponsor a program', url: '/Sponsor-program', icon: 'fas fa-donate' } // Dropdown link to sponsor a program
           ]
         },
         { label: 'TEAM', url: '/protected/OurStaff', icon: 'fas fa-users' }, // Link to the team page
         { label: 'GALLERY', url: '/Gallery', icon: 'fas fa-images' }, // Link to the gallery
-        { label: 'FRIENDS', url: '/protected/Friends', icon: 'fas fa-user-friends' } // Link to the friends section
+        { label: 'FRIENDS of SCHIELD', url: '/protected/Friends', icon: 'fas fa-user-friends' } // Link to the friends section
       ]
     };
   },

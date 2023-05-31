@@ -42,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import logoImage from '@/static/Web/logo.png';
+import logoImage from '@/static/schield-images/logos/g-Logo.png';
 export default {
   data() {
    return {

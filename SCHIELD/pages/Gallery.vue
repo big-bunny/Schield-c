@@ -63,8 +63,13 @@ import staff1 from '@/static/images/staff/staff1.jpg';
 import staff2 from '@/static/images/staff/staff2.jpg';
 import staff4 from '@/static/images/staff/staff4.jpg';
 
+definePageMeta({ auth: false });
 export default {
-  data() {
+  props: {
+   
+    href: String,
+  },
+ data() {
     const gallery = [
       {
         id: 2,
