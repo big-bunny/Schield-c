@@ -2,10 +2,10 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
 import EmailProvider from 'next-auth/providers/email';
 import GoogleProvider from 'next-auth/providers/google';
-
+import { PrismaClient } from '@prisma/client';
+import { NextApiHandler } from 'next';
 import { NuxtAuthHandler } from '#auth';
-import pool from '../../db';
-
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
 export default NuxtAuthHandler({
   secret: process.env.NUXT_SECRET, // The secret used for signing cookies. It should be a long and random string.
   providers: [

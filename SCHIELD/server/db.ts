@@ -1,16 +1,28 @@
-import pg from 'pg';
-import dotenv from 'dotenv';
+import { MongoClient, Db } from 'mongodb';
 
-dotenv.config();
+let db: Db;
 
-const { Pool } = pg;
+export async function connectDatabase() {
+  if (db) {
+    return db;
+  }
 
-const pool = new Pool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-});
+  const client = new MongoClient(process.env.DATABASE_URL);
 
-export default pool;
+  try {
+    await client.connect();
+    db = client.db();
+    console.log('Connected to the MongoDB database');
+    return db;
+  } catch (error) {
+    console.error('Error connecting to the MongoDB database:', error);
+    throw error;
+  }
+}
+
+export function getDatabase() {
+  if (!db) {
+    throw new Error('Database not connected');
+  }
+  return db;
+}
