@@ -1,28 +1,18 @@
-import { MongoClient, Db } from 'mongodb';
+import { PrismaClient } from '@prisma/client';
 
-let db: Db;
+let prisma: PrismaClient;
 
-export async function connectDatabase() {
-  if (db) {
-    return db;
+export function getPrismaClient() {
+  if (!prisma) {
+    prisma = new PrismaClient({
+      datasources: {
+        db: {
+          url: process.env.MONGO_URI,
+        },
+      },
+    });
   }
-
-  const client = new MongoClient(process.env.DATABASE_URL);
-
-  try {
-    await client.connect();
-    db = client.db();
-    console.log('Connected to the MongoDB database');
-    return db;
-  } catch (error) {
-    console.error('Error connecting to the MongoDB database:', error);
-    throw error;
-  }
+  return prisma;
 }
 
-export function getDatabase() {
-  if (!db) {
-    throw new Error('Database not connected');
-  }
-  return db;
-}
+export default prisma;

@@ -1,9 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL") // Set your PostgreSQL database URL as an environment variable
+  provider = "mongodb"
+  url      = env("MONGO_URI")
 }
 
 generator client {
@@ -11,18 +8,10 @@ generator client {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  username  String   @unique
-  email     String   @unique
-  password  String
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-// Add this at the end of the file
-model User {
-  id      Int    @id @default(autoincrement())
-  email   String @unique
+  id       Int    @id  @map("_id")
+  name     String
+  email    String  @unique
   password String
-  name    String
 }
+
+
