@@ -7,6 +7,7 @@ specifiers:
   '@nuxtjs/tailwindcss': ^6.1.0
   '@prisma/client': ^4.15.0
   '@sidebase/nuxt-auth': ^0.4.3
+  '@types/next-auth': ^3.15.0
   '@types/node': ^18
   argon2: ^0.30.3
   css-loader: ^6.7.3
@@ -53,6 +54,7 @@ devDependencies:
   '@fortawesome/fontawesome-free': 6.4.0
   '@nuxtjs/tailwindcss': 6.6.7_webpack@5.81.0
   '@sidebase/nuxt-auth': 0.4.4_next-auth@4.22.1
+  '@types/next-auth': 3.15.0_y4yhjuf6eff3zsigfyt3aiq5rq
   '@types/node': 18.16.2
   css-loader: 6.7.3_webpack@5.81.0
   next: 13.3.1_biqbaboplfbrettd7655fr4n2y
@@ -1187,6 +1189,18 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/next-auth/3.15.0_y4yhjuf6eff3zsigfyt3aiq5rq:
+    resolution: {integrity: sha512-ZVfejlu81YiIRX1m0iKAfvZ3nK7K9EyZWhNARNKsFop8kNAgEvMnlKpTpwN59xkK2OhyWLagPuiDAVBYSO9jSA==}
+    deprecated: This is a stub types definition. next-auth provides its own type definitions, so you do not need this installed.
+    dependencies:
+      next-auth: 4.22.1_y4yhjuf6eff3zsigfyt3aiq5rq
+    transitivePeerDependencies:
+      - next
+      - nodemailer
+      - react
+      - react-dom
     dev: true
 
   /@types/node/18.16.2:
