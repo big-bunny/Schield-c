@@ -1,3 +1,4 @@
+// Import the required dependencies
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
 import EmailProvider from 'next-auth/providers/email';
@@ -32,14 +33,19 @@ export default NuxtAuthHandler({
       authorize: async (credentials) => {
         const prisma = getPrismaClient();
 
-        // Check if the user exists in the database
-        const existingUser = await prisma.user.findUnique({
-          where: { email: credentials.email },
-        });
+     // Check if the user exists in the database
+const existingUser = await prisma.user.findUnique({
+  where: { email: credentials.email },
 
-        if (existingUser) {
-          return existingUser;
-        }
+});
+
+
+if (existingUser && existingUser.password === credentials.password) {
+  return existingUser;
+}
+
+// Authentication failed
+
 
         // Create a new user
         const newUser = await prisma.user.create({
