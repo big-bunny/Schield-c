@@ -1,7 +1,6 @@
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
-import EmailProvider from 'next-auth/providers/email';
-import { NuxtAuthHandler } from '#auth';
+import {NuxtAuthHandler}  from '#auth';
 import GoogleProvider from 'next-auth/providers/google';
 
 export default NuxtAuthHandler({
@@ -25,26 +24,21 @@ export default NuxtAuthHandler({
     }),
     CredentialsProvider.default({
       credentials: {
-        email: { label: "Email", type: "text", placeholder: "Enter your email" },
-        password: { label: "Password", type: "password" },
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" }
       },
       authorize: async (credentials) => {
-        // Remove the Prisma related code here
+        // Add your own logic to authenticate the user with the provided credentials
+        const user = await yourAuthenticationFunction(credentials.username, credentials.password);
         
-        // Example code without Prisma
-        const existingUser = await getUserByEmail(credentials.email);
-
-        if (existingUser && existingUser.password === credentials.password) {
-          return existingUser;
+        if (user) {
+          // Return an object with the user data to be stored in the session
+          return Promise.resolve(user);
+        } else {
+          // If authentication fails, return null or throw an error
+          return Promise.resolve(null);
         }
-
-        const newUser = await createUser(credentials.email, credentials.password);
-
-        return newUser;
-      },
+      }
     }),
   ],
-  pages: {
-    signIn: '../../../components/AuthenticationStatus.vue',
-  },
 });
